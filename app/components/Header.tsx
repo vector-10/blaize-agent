@@ -1,88 +1,26 @@
 "use client"
 import React, { useState } from 'react';
-import { Moon, Menu, X } from 'lucide-react';
+import Link from "next/link"
 
-const Header = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const navigation = [
-        { name: 'Home', href: '#', current: true },
-        { name: 'About Us', href: '#', current: false },
-        { name: 'Our Offerings', href: '#', current: false },
-        { name: 'Blog', href: '#', current: false },
-        { name: 'Support', href: '#', current: false },
-      ];    
+
+const Header = () => {   
       return (
-        <nav className="bg-black border-b border-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                {/* Logo */}
-                <div className="flex-shrink-0 flex items-center">
-                  <span className="text-2xl font-bold text-white">blaize-agent</span>
-                </div>
-    
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex sm:space-x-8">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={`${
-                        item.current
-                          ? 'text-blue-600'
-                          : 'text-gray-200 hover:text-gray-700'
-                      } inline-flex items-center px-1 pt-1 text-sm font-medium`}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-    
-              {/* Right side icons */}
-              <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                <button className="p-2 rounded-full text-gray-200 hover:text-gray-300">
-                  <Moon className="h-5 w-5" />
-                </button>
-              </div>
-    
-              {/* Mobile menu button */}
-              <div className="flex items-center md:hidden">
-                <button
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-gray-300"
-                >
-                  {isOpen ? (
-                    <X className="h-6 w-6" />
-                  ) : (
-                    <Menu className="h-6 w-6" />
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-    
-          {/* Mobile menu */}
-          {isOpen && (
-            <div className="md:hidden">
-              <div className="pt-2 pb-3 space-y-1">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`${
-                      item.current
-                        ? 'bg-blue-50 text-blue-600'
-                        : 'text-gray-500 hover:text-gray-700'
-                    } block pl-3 pr-4 py-2 text-base font-medium`}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-        </nav>
+       <div className='navigation h-[5rem] md:text-lg bg-black text-white flex items-center justify-around'>
+       <div className='logo cursor-pointer'>
+         <h1>blaize-agent</h1>
+       </div>
+       <div className='links flex items-center justify-center py-2 px-2 text-black border divide-x divide-gray-300'>
+         <Link href='/about' className='px-4 hover:bg-[#021e60] hover:text-white transition delay-100 ease-in'>Home</Link>
+         <Link href='/developers' className='px-4 hover:bg-[#021e60] hover:text-white transition delay-100 ease-in'>About</Link>
+         <Link href='/solutions'className='px-4 hover:bg-[#021e60] hover:text-white transition delay-100 ease-in'>Developers</Link>
+         <Link href='/resources' className='px-4 hover:bg-[#021e60] hover:text-white transition delay-100 ease-in'>Resources</Link>
+       </div>  
+       <div className='media flex space-x-4'>
+            <a className='border p-2 flex items-center rounded md:text-lg'>X</a>
+            <a className='border p-2 flex items-center rounded md:text-lg'>D</a>
+            <a className='border p-2 flex items-center rounded md:text-lg'>T</a>         
+       </div>
+     </div>     
       );
 }
 
