@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Moon, Menu, X } from 'lucide-react';
 
-
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navigation = [
@@ -13,17 +12,17 @@ const Header = () => {
         { name: 'Support', href: '#', current: false },
       ];    
       return (
-        <nav className="bg-white border-b border-gray-100">
+        <nav className="bg-black border-b border-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex items-center">
                 {/* Logo */}
                 <div className="flex-shrink-0 flex items-center">
-                  <span className="text-2xl font-bold">Aya</span>
+                  <span className="text-2xl font-bold text-white">blaize-agent</span>
                 </div>
     
                 {/* Desktop Navigation */}
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                <div className="hidden md:flex sm:space-x-8">
                   {navigation.map((item) => (
                     <a
                       key={item.name}
@@ -31,7 +30,7 @@ const Header = () => {
                       className={`${
                         item.current
                           ? 'text-blue-600'
-                          : 'text-gray-500 hover:text-gray-700'
+                          : 'text-gray-200 hover:text-gray-700'
                       } inline-flex items-center px-1 pt-1 text-sm font-medium`}
                     >
                       {item.name}
@@ -42,16 +41,16 @@ const Header = () => {
     
               {/* Right side icons */}
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                <button className="p-2 rounded-full text-gray-500 hover:text-gray-700">
+                <button className="p-2 rounded-full text-gray-200 hover:text-gray-300">
                   <Moon className="h-5 w-5" />
                 </button>
               </div>
     
               {/* Mobile menu button */}
-              <div className="flex items-center sm:hidden">
+              <div className="flex items-center md:hidden">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700"
+                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-gray-300"
                 >
                   {isOpen ? (
                     <X className="h-6 w-6" />
@@ -65,7 +64,7 @@ const Header = () => {
     
           {/* Mobile menu */}
           {isOpen && (
-            <div className="sm:hidden">
+            <div className="md:hidden">
               <div className="pt-2 pb-3 space-y-1">
                 {navigation.map((item) => (
                   <a
